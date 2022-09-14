@@ -80,4 +80,4 @@ Web-based, SaaS eCommerce app for managing a trampoline park online!
 - [ ] Brahim
 - [ ] Bruno
 - [x] Rustem
-- [ ] Syed/Zeeshan
+- [x] Syed/Zeeshan
