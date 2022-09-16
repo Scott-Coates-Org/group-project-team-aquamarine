@@ -1,19 +1,15 @@
-import Counter from './components/Counter'
-import logo from './logo.svg'
-import './App.css'
+import "./App.css";
+import CustomerPage from "./layouts/CustomerPage.jsx";
+import { Flex } from "@chakra-ui/react";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Counter />
-      </header>
+    <div className="App">
+      <Flex justify="center" align="center" fontFamily="Ubuntu">
+        <CustomerPage />
+      </Flex>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
