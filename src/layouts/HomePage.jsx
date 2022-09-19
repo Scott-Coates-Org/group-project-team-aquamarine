@@ -1,4 +1,4 @@
-import { Flex, Text, chakra } from "@chakra-ui/react";
+import { Flex, Text, chakra, Box } from "@chakra-ui/react";
 import React from "react";
 
 function HomePage() {
@@ -11,16 +11,31 @@ function HomePage() {
       flexDir="column"
       className="homepage"
     >
-      <Text
-        p={10}
-        bgGradient="linear(to-bl, #7928CA, #FF0080)"
-        bgClip="text"
-        fontSize="6xl"
-        fontWeight="extrabold"
+      <Flex
+        flexDir="row"
+        alignItems="center"
+        justifyContent="center"
         className="homepage__header"
+        gap={5}
       >
-        Aquamarine App
-      </Text>
+        <Box
+          w="45px"
+          h="45px"
+          borderRadius="full"
+          bgGradient="linear-gradient(to bottom left, #7928CA, #FF0080)"
+        ></Box>{" "}
+        <Text
+          pt={10}
+          pb={10}
+          bgGradient="linear(to-bl, #7928CA, #FF0080)"
+          bgClip="text"
+          fontSize="6xl"
+          fontWeight="extrabold"
+          className="homepage__logo__text"
+        >
+          Aquamarine
+        </Text>
+      </Flex>
       <chakra.button
         w="200px"
         px="3"
