@@ -9,9 +9,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { signOut } from "firebase/auth";
-import { logout, selectUser } from "../../src/redux/authSlice";
+import { logout, selectUser } from "../../../redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "../firebase/client";
+import { auth } from "../../../firebase/client";
 
 function TopNav() {
   const user = useSelector(selectUser).user;

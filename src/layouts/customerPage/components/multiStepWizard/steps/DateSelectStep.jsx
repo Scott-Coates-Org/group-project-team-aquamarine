@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import { Flex } from "@chakra-ui/react";
 import "./Calendar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setDate } from "redux/cartSlice";
+import { setDate } from "../../../../../redux/cartSlice";
 
 function DateSelectStep() {
   const dispatch = useDispatch();

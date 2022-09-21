@@ -22,8 +22,8 @@ import {
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setNewRoom } from "../redux/roomsSlice";
-import { db } from "../firebase/client";
+import { setNewRoom } from "../../../redux/roomsSlice";
+import { db } from "../../../firebase/client";
 
 function AddRooms() {
   const [roomName, setRoomName] = useState("");

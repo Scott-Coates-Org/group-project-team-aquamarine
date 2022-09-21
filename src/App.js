@@ -3,10 +3,10 @@ import "./App.css";
 import { Flex } from "@chakra-ui/react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Login from "./components/login/Login";
-import AdminPage from "./layouts/AdminPage";
-import HomePage from "./layouts/HomePage";
-import CustomerPage from "./layouts/CustomerPage.jsx";
+import Login from "./layouts/login/Login";
+import AdminPage from "./layouts/adminPage/index";
+import HomePage from "./layouts/homePage/index";
+import CustomerPage from "./layouts/customerPage/index";
 // import AddRooms from "./components/addRooms/AddRooms";
 import { selectUser } from "./redux/authSlice";
 
