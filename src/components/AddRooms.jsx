@@ -11,26 +11,26 @@ import {
   NumberInputField,
   NumberInputStepper,
   Text,
-} from "@chakra-ui/react";
-import React, { useState } from "react";
+} from '@chakra-ui/react';
+import React, { useState } from 'react';
 import {
   getStorage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
-} from "firebase/storage";
-import { collection, doc, setDoc } from "firebase/firestore";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setNewRoom } from "../../redux/roomsSlice";
-import { db } from "../../firebase/client";
+} from 'firebase/storage';
+import { collection, doc, setDoc } from 'firebase/firestore';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setNewRoom } from '../redux/roomsSlice';
+import { db } from '../firebase/client';
 
 function AddRooms() {
-  const [roomName, setRoomName] = useState("");
-  const [roomCapacity, setRoomCapacity] = useState("0");
+  const [roomName, setRoomName] = useState('');
+  const [roomCapacity, setRoomCapacity] = useState('0');
   const [roomPhotoFile, setRoomPhotoFile] = useState(null);
-  const [roomPhotoURL, setRoomPhotoURL] = useState("");
-  const [photoLoading, setPhotoLoading] = useState("");
+  const [roomPhotoURL, setRoomPhotoURL] = useState('');
+  const [photoLoading, setPhotoLoading] = useState('');
 
   const dispatch = useDispatch();
 
@@ -51,22 +51,22 @@ function AddRooms() {
       console.log(file);
 
       const storage = getStorage();
-      const storageRef = ref(storage, "uploads/rooms/" + file.name);
+      const storageRef = ref(storage, 'uploads/rooms/' + file.name);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
-        "state_changed",
+        'state_changed',
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          setPhotoLoading("Upload is " + progress + "% done");
+          setPhotoLoading('Upload is ' + progress + '% done');
           switch (snapshot.state) {
-            case "paused":
-              setPhotoLoading("Upload is paused");
+            case 'paused':
+              setPhotoLoading('Upload is paused');
               break;
-            case "running":
-              setPhotoLoading("Upload is running");
+            case 'running':
+              setPhotoLoading('Upload is running');
               break;
           }
         },
@@ -75,7 +75,7 @@ function AddRooms() {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("File available at", downloadURL);
+            console.log('File available at', downloadURL);
             setRoomPhotoURL(downloadURL);
           });
         }
@@ -93,9 +93,9 @@ function AddRooms() {
       photoURL: roomPhotoURL,
     };
     try {
-      const newRoomInfoRef = doc(collection(db, "rooms"));
+      const newRoomInfoRef = doc(collection(db, 'rooms'));
       await setDoc(newRoomInfoRef, data).then(function () {
-        alert("Room info successfully sent!");
+        alert('Room info successfully sent!');
         dispatch(setNewRoom({ room: { ...data, id: newRoomInfoRef.id } }));
       });
     } catch (error) {
@@ -132,7 +132,7 @@ function AddRooms() {
           className="add_room__container__header"
         >
           <Text
-            textAlign={["left", "center"]}
+            textAlign={['left', 'center']}
             fontSize="1.5em"
             fontWeight={700}
           >
@@ -201,7 +201,7 @@ function AddRooms() {
               />
             ) : (
               <Text
-                textAlign={["left", "center"]}
+                textAlign={['left', 'center']}
                 fontSize="1em"
                 fontWeight={400}
               >
@@ -216,7 +216,7 @@ function AddRooms() {
               bg={`gray.200`}
               rounded="5"
               _hover={{ bg: `gray.300` }}
-              onClick={() => console.log("Add Room")}
+              onClick={() => console.log('Add Room')}
               type="submit"
             >
               Add Room
