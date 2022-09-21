@@ -1,7 +1,7 @@
-import './App.css';
+import "./App.css";
 // import CustomerPage from './layouts/customerPage';
-import { Flex } from '@chakra-ui/react';
-import HomePage from './layouts/homePage';
+import { Flex } from "@chakra-ui/react";
+import HomePage from "./layouts/homePage";
 // import AddRooms from './components/AddRooms';
 
 // import AdminPage from './layouts/adminPage';

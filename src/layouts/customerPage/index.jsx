@@ -1,7 +1,7 @@
-import { Flex } from '@chakra-ui/react';
-import React from 'react';
-import CustomerCart from './components/CustomerCart';
-import MultiStepWizardForm from './components/multiStepWizard/MultiStepWizardForm';
+import { Flex } from "@chakra-ui/react";
+import React from "react";
+import CustomerCart from "./components/CustomerCart";
+import MultiStepWizardForm from "./components/multiStepWizard/MultiStepWizardForm";
 
 function CustomerPage() {
   return (

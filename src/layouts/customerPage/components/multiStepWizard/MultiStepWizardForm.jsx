@@ -1,23 +1,23 @@
-import { Flex, Text } from '@chakra-ui/react';
-import React, { useState } from 'react';
-import ProgressBar from 'components/ProgressBar';
-import AddonSelectStep from './steps/AddonSelectStep';
-import Button from './Button';
-import ContactStep from './steps/ContactStep';
-import DateSelectStep from './steps/DateSelectStep';
-import PaymentStep from './steps/PaymentStep';
-import ProductSelectStep from './steps/ProductSelectStep';
-import SignWaiverStep from './steps/SignWaiverStep';
+import { Flex, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import ProgressBar from "components/ProgressBar";
+import AddonSelectStep from "./steps/AddonSelectStep";
+import Button from "./Button";
+import ContactStep from "./steps/ContactStep";
+import DateSelectStep from "./steps/DateSelectStep";
+import PaymentStep from "./steps/PaymentStep";
+import ProductSelectStep from "./steps/ProductSelectStep";
+import SignWaiverStep from "./steps/SignWaiverStep";
 
 function MultiStepWizardForm() {
   const [step, setStep] = useState(0);
   const formTitles = [
-    'Select Date',
-    'Select Product',
-    'Select Add-ons',
-    'Enter Contact Details',
-    'Sign Waiver',
-    'Enter Payment Details',
+    "Select Date",
+    "Select Product",
+    "Select Add-ons",
+    "Enter Contact Details",
+    "Sign Waiver",
+    "Enter Payment Details",
   ];
 
   const currentStep = (step) => {
@@ -66,7 +66,7 @@ function MultiStepWizardForm() {
         className="wizard__progress_bar"
       >
         <Text
-          textAlign={['left', 'center']}
+          textAlign={["left", "center"]}
           fontSize="1em"
           fontWeight={400}
         >{`Step ${step + 1} of ${formTitles.length}`}</Text>
@@ -86,7 +86,7 @@ function MultiStepWizardForm() {
           className="wizard__form_container__header"
         >
           <Text
-            textAlign={['left', 'center']}
+            textAlign={["left", "center"]}
             fontSize="1.5em"
             fontWeight={700}
           >
@@ -115,7 +115,7 @@ function MultiStepWizardForm() {
           {step === formTitles.length - 1 && (
             <Button
               text="Pay Now"
-              onClick={() => console.log('Payment confirmed')}
+              onClick={() => console.log("Payment confirmed")}
               color="green"
             />
           )}

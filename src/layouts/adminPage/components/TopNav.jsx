@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Avatar,
   Flex,
@@ -7,7 +7,7 @@ import {
   MenuItem,
   MenuList,
   Text,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 function TopNav() {
   return (
@@ -37,11 +37,11 @@ function TopNav() {
           <MenuItem
             rounded="md"
             bgColor="red.400"
-            _hover={{ bgColor: 'red.500' }}
-            _focus={{ bgColor: 'red.500' }}
+            _hover={{ bgColor: "red.500" }}
+            _focus={{ bgColor: "red.500" }}
             fontWeight="semibold"
           >
-            Logout{' '}
+            Logout{" "}
           </MenuItem>
         </MenuList>
       </Menu>

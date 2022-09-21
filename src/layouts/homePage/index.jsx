@@ -1,5 +1,5 @@
-import { Flex, Text, chakra, Box } from '@chakra-ui/react';
-import React from 'react';
+import { Flex, Text, chakra, Box } from "@chakra-ui/react";
+import React from "react";
 
 function HomePage() {
   return (
@@ -23,7 +23,7 @@ function HomePage() {
           h="45px"
           borderRadius="full"
           bgGradient="linear-gradient(to bottom left, #7928CA, #FF0080)"
-        ></Box>{' '}
+        ></Box>{" "}
         <Text
           pt={10}
           pb={10}
@@ -43,7 +43,7 @@ function HomePage() {
         bg={`gray.200`}
         rounded="5"
         _hover={{ bg: `gray.300` }}
-        onClick={() => console.log('Buy tickets')}
+        onClick={() => console.log("Buy tickets")}
       >
         Buy Tickets
       </chakra.button>
