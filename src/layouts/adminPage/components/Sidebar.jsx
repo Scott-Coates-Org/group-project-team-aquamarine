@@ -7,7 +7,7 @@ import {
   Box,
   Flex,
   Text,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 function Sidebar() {
   return (

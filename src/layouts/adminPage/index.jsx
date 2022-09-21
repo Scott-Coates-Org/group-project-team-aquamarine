@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
-import Sidebar from "../components/Sidebar";
-import TopNav from "../components/TopNav";
+import Sidebar from "./components/Sidebar";
+import TopNav from "./components/TopNav";
 
 function AdminPage() {
   return (
