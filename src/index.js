@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { createStandaloneToast } from "@chakra-ui/toast";
+import { BrowserRouter } from "react-router-dom";
 
 const { ToastContainer, toast } = createStandaloneToast();
 
@@ -13,10 +14,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ChakraProvider resetCSS={true}>
-        <App />
-        <ToastContainer />
-      </ChakraProvider>
+      <BrowserRouter>
+        <ChakraProvider resetCSS={true}>
+          <App />
+          <ToastContainer />
+        </ChakraProvider>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

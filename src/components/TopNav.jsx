@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Avatar,
   Flex,
@@ -7,9 +7,19 @@ import {
   MenuItem,
   MenuList,
   Text,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
+import { signOut } from "firebase/auth";
+import { logout, selectUser } from "../../src/redux/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../firebase/client";
 
 function TopNav() {
+  const user = useSelector(selectUser).user;
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    signOut(auth);
+    dispatch(logout());
+  };
   return (
     <Flex
       bg="white"
@@ -20,7 +30,7 @@ function TopNav() {
       px={8}
     >
       <Text fontSize="2xl" fontWeight="bold">
-        Welcome (user name)!
+        Welcome {user}!
       </Text>
 
       <Menu>
@@ -37,11 +47,12 @@ function TopNav() {
           <MenuItem
             rounded="md"
             bgColor="red.400"
-            _hover={{ bgColor: 'red.500' }}
-            _focus={{ bgColor: 'red.500' }}
+            _hover={{ bgColor: "red.500" }}
+            _focus={{ bgColor: "red.500" }}
             fontWeight="semibold"
+            onClick={logoutHandler}
           >
-            Logout{' '}
+            Logout{" "}
           </MenuItem>
         </MenuList>
       </Menu>
