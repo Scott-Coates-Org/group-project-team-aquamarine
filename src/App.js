@@ -1,16 +1,19 @@
 import "./App.css";
-import CustomerPage from "./layouts/CustomerPage.jsx";
+// import CustomerPage from './layouts/customerPage';
 import { Flex } from "@chakra-ui/react";
-import HomePage from "./layouts/HomePage";
-import AddRooms from "./components/addRooms/AddRooms";
+import HomePage from "./layouts/homePage";
+// import AddRooms from './components/AddRooms';
+
+// import AdminPage from './layouts/adminPage';
 
 function App() {
   return (
     <div className="App">
       <Flex justify="center" align="center" fontFamily="Ubuntu">
-        {/* <HomePage /> */}
+        <HomePage />
         {/* <CustomerPage /> */}
-        <AddRooms />
+        {/* <AddRooms /> */}
+        {/* <AdminPage /> */}
       </Flex>
     </div>
   );
