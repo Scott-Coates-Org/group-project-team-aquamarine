@@ -41,7 +41,7 @@ function Sidebar() {
         Data
       </Text>
 
-      <Accordion allowMultiple mt={2}>
+      <Accordion allowMultiple mt={2} defaultIndex={[]}>
         <AccordionItem borderColor="whiteAlpha.200">
           <AccordionButton>
             <Text textColor="whiteAlpha.800">Products</Text>
