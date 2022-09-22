@@ -1,5 +1,6 @@
 import { Flex, Text, chakra, Box } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -16,11 +17,11 @@ function HomePage() {
         alignItems="center"
         justifyContent="center"
         className="homepage__header"
-        gap={5}
+        gap={8}
       >
         <Box
-          w="45px"
-          h="45px"
+          w="48px"
+          h="48px"
           borderRadius="full"
           bgGradient="linear-gradient(to bottom left, #7928CA, #FF0080)"
         ></Box>{" "}
@@ -36,17 +37,19 @@ function HomePage() {
           Aquamarine
         </Text>
       </Flex>
-      <chakra.button
-        w="200px"
-        px="3"
-        py="2"
-        bg={`gray.200`}
-        rounded="5"
-        _hover={{ bg: `gray.300` }}
-        onClick={() => console.log("Buy tickets")}
-      >
-        Buy Tickets
-      </chakra.button>
+      <Link to="/customer">
+        <chakra.button
+          w="200px"
+          px="3"
+          py="2"
+          bg={`gray.200`}
+          rounded="5"
+          _hover={{ bg: `gray.300` }}
+          onClick={() => console.log("Buy tickets")}
+        >
+          Buy Tickets
+        </chakra.button>
+      </Link>
     </Flex>
   );
 }
