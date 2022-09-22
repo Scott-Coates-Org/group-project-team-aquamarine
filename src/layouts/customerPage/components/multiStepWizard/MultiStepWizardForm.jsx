@@ -1,8 +1,8 @@
 import { Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-import ProgressBar from "../../../../components/ProgressBar";
-import AddonSelectStep from "./steps/AddonSelectStep";
+import ProgressBar from "components/ProgressBar";
 import Button from "./Button";
+import AddonSelectStep from "./steps/AddonSelectStep";
 import ContactStep from "./steps/ContactStep";
 import DateSelectStep from "./steps/DateSelectStep";
 import PaymentStep from "./steps/PaymentStep";

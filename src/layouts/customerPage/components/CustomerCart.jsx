@@ -2,7 +2,7 @@ import { CalendarIcon } from "@chakra-ui/icons";
 import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
-import { getFormatedDate } from "../../../utils/dateFormat";
+import { getFormatedDate } from "utils/dateFormat";
 
 function CustomerCart() {
   const selectedDate = useSelector((state) => state.cart.date);

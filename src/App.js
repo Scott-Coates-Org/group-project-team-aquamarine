@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
-import "./App.css";
+import "App.css";
 import { Flex } from "@chakra-ui/react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Login from "./layouts/login/Login";
-import AdminPage from "./layouts/adminPage/index";
-import HomePage from "./layouts/homePage/index";
-import CustomerPage from "./layouts/customerPage/index";
+import Login from "layouts/login/Login";
+import AdminPage from "layouts/adminPage/index";
+import HomePage from "layouts/homePage/index";
+import CustomerPage from "layouts/customerPage/index";
 // import AddRooms from "./components/addRooms/AddRooms";
 import {
   currentUser,
   removeCurrentUser,
   setCurrentUser,
-} from "./redux/currentUserReducer";
+} from "redux/currentUserReducer";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase/client";
+import { auth } from "firebaseApi/client";
 
 function App() {
   const dispatch = useDispatch();

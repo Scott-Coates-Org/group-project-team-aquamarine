@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../firebase/client";
+import { db } from "firebaseApi/client";
 
 // createAsyncThunk documentation: https://redux-toolkit.js.org/api/createAsyncThunk
 
