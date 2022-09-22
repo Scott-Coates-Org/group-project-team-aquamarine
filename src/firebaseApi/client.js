@@ -8,18 +8,21 @@ import "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// const firebaseKey = process.env.REACT_APP_FIREBASE_API_KEY;
-// const firebaseProjectId = process.env.REACT_APP_FIREBASE_PROJECT_ID;
-// const firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
-// const firebaseStorageBucket = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
+const firebaseKey = process.env.REACT_APP_FIREBASE_API_KEY;
+const firebaseProjectId = process.env.REACT_APP_FIREBASE_PROJECT_ID;
+const firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
+const firebaseStorageBucket = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
+const firebaseMessaginSenderId =
+  process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID;
+const firebaseAppId = process.env.REACT_APP_FIREBASE_APP_ID;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB6a1MpgDoPm5j0Ijh4zCmOv76E3J0s5ak",
-  authDomain: "team-aquamarine.firebaseapp.com",
-  projectId: "team-aquamarine",
-  storageBucket: "team-aquamarine.appspot.com",
-  messagingSenderId: "394558346797",
-  appId: "1:394558346797:web:c676043213cad9700c8aa4",
+  apiKey: firebaseKey,
+  authDomain: firebaseAuthDomain,
+  projectId: firebaseProjectId,
+  storageBucket: firebaseStorageBucket,
+  messagingSenderId: firebaseMessaginSenderId,
+  appId: firebaseAppId,
 };
 
 const app = initializeApp(firebaseConfig);
