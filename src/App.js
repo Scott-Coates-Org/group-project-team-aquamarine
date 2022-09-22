@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { Flex } from "@chakra-ui/react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Login from "./layouts/login/Login";
 import AdminPage from "./layouts/adminPage/index";
 import HomePage from "./layouts/homePage/index";
 import CustomerPage from "./layouts/customerPage/index";
 // import AddRooms from "./components/addRooms/AddRooms";
-import { selectUser } from "./redux/authSlice";
+import {
+  currentUser,
+  removeCurrentUser,
+  setCurrentUser,
+} from "./redux/currentUserReducer";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/client";
 
 function App() {
-  const user = useSelector(selectUser).accessToken;
+  const dispatch = useDispatch();
+  const user = useSelector(currentUser);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (userAuth) => {
+      if (userAuth) {
+        dispatch(
+          setCurrentUser({
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+            photoUrl: userAuth.photoURL,
+          })
+        );
+      } else {
+        dispatch(removeCurrentUser());
+      }
+    });
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -30,11 +54,13 @@ function App() {
           <Route path="/customer" element={<CustomerPage />} />
           <Route
             path="/admin"
-            element={!user ? <Navigate to="/login" replace /> : <AdminPage />}
+            element={
+              !user?.email ? <Navigate to="/login" replace /> : <AdminPage />
+            }
           />
           <Route
             path="/login"
-            element={user ? <Navigate to="/admin" replace /> : <Login />}
+            element={user?.email ? <Navigate to="/admin" replace /> : <Login />}
           />
           {/* <Route path="*" element={<NotFound/>}/> */}
         </Routes>

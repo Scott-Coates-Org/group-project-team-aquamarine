@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase/client";
@@ -50,6 +50,37 @@ const Login = () => {
       navigate("/login");
     }
   }, [user, dispatch, navigate]);
+
+  // const currentUser = useSelector(currentUser);
+
+  //   useEffect(() => {
+  //     auth.onAuthStateChanged((user) => {
+  //       if (user) {
+  //         dispatch(setCurrentUser({ email: user.email, uid: user.uid }));
+  //         console.log("user", user.email);
+  //       }
+  //     });
+  //   }, [currentUser]);
+  //   return currentUser?.email ? <LoggedIn /> : <Welcome />;
+  // }
+
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (userAuth) => {
+  //     if (userAuth) {
+  //       // user is logged in, send the user's details to redux, store the current user in the state
+  //       dispatch(
+  //         setCurrentUser({
+  //           email: userAuth.email,
+  //           uid: userAuth.uid,
+  //           displayName: userAuth.displayName,
+  //           photoUrl: userAuth.photoURL,
+  //         })
+  //       );
+  //     } else {
+  //       dispatch(removeCurrentUser());
+  //     }
+  //   });
+  // }, []);
 
   // const logoutHandler = () => {
   //   signOut(auth);

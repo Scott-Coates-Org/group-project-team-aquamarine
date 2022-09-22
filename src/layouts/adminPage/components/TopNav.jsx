@@ -9,12 +9,13 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { signOut } from "firebase/auth";
-import { logout, selectUser } from "../../../redux/authSlice";
+import { logout } from "../../../redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../../firebase/client";
+import { currentUser } from "../../../redux/currentUserReducer";
 
 function TopNav() {
-  const user = useSelector(selectUser).user;
+  const user = useSelector(currentUser);
   const dispatch = useDispatch();
   const logoutHandler = () => {
     signOut(auth);
@@ -30,13 +31,30 @@ function TopNav() {
       px={8}
     >
       <Text fontSize="2xl" fontWeight="bold">
-        Welcome {user}!
+        Welcome {user.displayName}!
       </Text>
 
       <Menu>
         <MenuButton>
-          <Flex alignItems="center" gap={1}>
-            <Avatar w={10} h={10} />
+          <Flex alignItems="center" gap={3}>
+            {user.photoUrl ? (
+              <img
+                // referrerPolicy="no-referrer"
+                width="35px"
+                height="35px"
+                alt="avatar"
+                src={user && user.photoUrl}
+                style={{ borderRadius: "50%", border: "1px solid #e2e8f0" }}
+              />
+            ) : (
+              <Avatar
+                w="35px"
+                h="35px"
+                bg="linear-gradient(to bottom left, #7928CA, #FF0080)"
+                color="white"
+                name={user.displayName}
+              ></Avatar>
+            )}
             <Text fontSize="lg" fontWeight="bold">
               Admin
             </Text>
