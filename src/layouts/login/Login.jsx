@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../../firebase/client";
+import { auth } from "firebaseApi/client";
 import { useDispatch } from "react-redux";
-import { login, logout } from "../../redux/authSlice";
+import { login, logout } from "redux/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { chakra, Flex, Image, Text, Box } from "@chakra-ui/react";
 
