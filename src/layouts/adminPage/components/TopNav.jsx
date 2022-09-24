@@ -20,6 +20,7 @@ function TopNav() {
   const logoutHandler = () => {
     signOut(auth);
     dispatch(logout());
+    console.log(user.photoUrl);
   };
   return (
     <Flex

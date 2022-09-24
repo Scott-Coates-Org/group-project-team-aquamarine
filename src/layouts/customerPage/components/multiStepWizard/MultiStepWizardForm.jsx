@@ -8,9 +8,11 @@ import DateSelectStep from "./steps/DateSelectStep";
 import PaymentStep from "./steps/PaymentStep";
 import ProductSelectStep from "./steps/ProductSelectStep";
 import SignWaiverStep from "./steps/SignWaiverStep";
+import { useSelector } from "react-redux";
 
 function MultiStepWizardForm() {
   const [step, setStep] = useState(0);
+  const ifDateSelected = useSelector((state) => state.cart.date);
   const formTitles = [
     "Select Date",
     "Select Product",
@@ -122,7 +124,11 @@ function MultiStepWizardForm() {
           {step < formTitles.length - 1 && (
             <Button
               text="Continue"
-              onClick={() => setStep((prevState) => prevState + 1)}
+              onClick={() =>
+                ifDateSelected
+                  ? setStep((prevState) => prevState + 1)
+                  : alert("Please pick a date!")
+              }
               color="blue"
             />
           )}
