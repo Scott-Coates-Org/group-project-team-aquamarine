@@ -2,6 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 
 import { Route, Routes } from "react-router-dom";
 import AddRooms from "./components/AddRooms";
+import DailyBookings from "./components/DailyBookings";
 import Products from "./components/Products";
 
 import Sidebar from "./components/Sidebar";
@@ -23,7 +24,7 @@ function AdminPage() {
             <Route path="add-product" element={<AddRooms />} />
 
             <Route path="bookings" element={<div>bookings</div>} />
-            <Route path="daily" element={<div>daily</div>} />
+            <Route path="daily" element={<DailyBookings />} />
 
             <Route path="rooms" element={<div>rooms</div>} />
             <Route path="add-room" element={<AddRooms />} />
