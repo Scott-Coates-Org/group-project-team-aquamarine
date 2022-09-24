@@ -52,12 +52,14 @@ function App() {
           {/* <Route path="/rustem" element={<AddRooms />} /> */}
           <Route path="/" element={<HomePage />} />
           <Route path="/customer" element={<CustomerPage />} />
+
           <Route
-            path="/admin"
+            path="/admin/*"
             element={
               !user?.email ? <Navigate to="/login" replace /> : <AdminPage />
             }
           />
+
           <Route
             path="/login"
             element={user?.email ? <Navigate to="/admin" replace /> : <Login />}

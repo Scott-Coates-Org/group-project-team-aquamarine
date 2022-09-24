@@ -22,6 +22,7 @@ function TopNav() {
     dispatch(logout());
     console.log(user.photoUrl);
   };
+
   return (
     <Flex
       bg="white"
