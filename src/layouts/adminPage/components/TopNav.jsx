@@ -21,6 +21,7 @@ function TopNav() {
     signOut(auth);
     dispatch(logout());
   };
+
   return (
     <Flex
       bg="white"

@@ -118,6 +118,7 @@ function AddRooms() {
       borderRadius="5"
       boxShadow="lg"
       className="add_room"
+      backgroundColor="white"
     >
       <Flex
         w="100%"

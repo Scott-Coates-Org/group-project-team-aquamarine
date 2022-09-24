@@ -7,7 +7,6 @@ import Login from "layouts/login/Login";
 import AdminPage from "layouts/adminPage/index";
 import HomePage from "layouts/homePage/index";
 import CustomerPage from "layouts/customerPage/index";
-// import AddRooms from "./components/addRooms/AddRooms";
 import {
   currentUser,
   removeCurrentUser,
@@ -52,12 +51,14 @@ function App() {
 
           <Route path="/" element={<HomePage />} />
           <Route path="/customer" element={<CustomerPage />} />
+
           <Route
-            path="/admin"
+            path="/admin/*"
             element={
               !user?.email ? <Navigate to="/login" replace /> : <AdminPage />
             }
           />
+
           <Route
             path="/login"
             element={user?.email ? <Navigate to="/admin" replace /> : <Login />}
