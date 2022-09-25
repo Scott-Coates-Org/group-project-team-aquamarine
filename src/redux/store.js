@@ -4,6 +4,7 @@ import authReducer from "./authSlice";
 import cartSlice from "./cartSlice";
 import counterReducer from "./counterSlice";
 import roomsSlice from "./roomsSlice";
+import productsSlice from "./productsSlice";
 import usersReducer from "./usersSlice";
 
 export const store = configureStore({
@@ -13,5 +14,6 @@ export const store = configureStore({
     users: usersReducer,
     cart: cartSlice,
     rooms: roomsSlice,
+    products :productsSlice
   },
 });
