@@ -133,6 +133,7 @@ function ProductSelectStep() {
                       id: "kidsRoom",
                       name: "Kid's 2h",
                       quantity: value,
+                      price: 25,
                     })
                   )
                 }
@@ -245,6 +246,7 @@ function ProductSelectStep() {
                       id: "adultsRoom",
                       name: "Adult's 2h",
                       quantity: value,
+                      price: 20,
                     })
                   )
                 }
@@ -357,6 +359,7 @@ function ProductSelectStep() {
                       id: "adultsRoomUnlim",
                       name: "Adult's Unlim",
                       quantity: value,
+                      price: 50,
                     })
                   )
                 }

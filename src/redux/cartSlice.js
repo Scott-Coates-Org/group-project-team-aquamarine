@@ -2,7 +2,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   date: "",
-  products: {},
+  products: [],
   addons: {},
   contacts: {},
   payDetails: {},
@@ -19,22 +19,48 @@ export const cartSlice = createSlice({
     setProductsTime: (state, action) => {
       const { id, name, time } = action.payload;
       const newProducts = state.products;
-      if (newProducts[id]) {
-        newProducts[id] = { ...newProducts[id], time: time };
+      const productIndex = newProducts.findIndex((p) => p.id === id);
+      console.log(productIndex);
+      if (productIndex !== -1) {
+        newProducts[productIndex] = {
+          ...newProducts[productIndex],
+          time: time,
+        };
       } else {
-        newProducts[id] = { id: id, name: name, time: time };
+        newProducts.push({ id: id, name: name, time: time });
       }
+      // if (newProducts[id]) {
+      //   newProducts[id] = { ...newProducts[id], time: time };
+      // } else {
+      //   newProducts[id] = { id: id, name: name, time: time };
+      // }
       state.products = newProducts;
       console.log(current(state.products));
     },
     setProductsQuantity: (state, action) => {
-      const { id, name, quantity } = action.payload;
+      const { id, name, quantity, price } = action.payload;
       const newProducts = state.products;
-      if (newProducts[id]) {
-        newProducts[id] = { ...newProducts[id], quantity: quantity };
+      const productIndex = newProducts.findIndex((p) => p.id === id);
+      console.log(productIndex);
+      if (productIndex !== -1) {
+        newProducts[productIndex] = {
+          ...newProducts[productIndex],
+          quantity: quantity,
+          price: price,
+        };
       } else {
-        newProducts[id] = { id: id, name: name, quantity: quantity };
+        newProducts.push({
+          id: id,
+          name: name,
+          quantity: quantity,
+          price: price,
+        });
       }
+      // if (newProducts[id]) {
+      //   newProducts[id] = { ...newProducts[id], quantity: quantity };
+      // } else {
+      //   newProducts[id] = { id: id, name: name, quantity: quantity };
+      // }
       state.products = newProducts;
       console.log(current(state.products));
     },
