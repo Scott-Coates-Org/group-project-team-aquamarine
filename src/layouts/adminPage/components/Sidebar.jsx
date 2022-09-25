@@ -7,7 +7,8 @@ import {
   Box,
   Flex,
   Text,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -41,7 +42,7 @@ function Sidebar() {
         Data
       </Text>
 
-      <Accordion allowMultiple mt={2}>
+      <Accordion allowMultiple mt={2} defaultIndex={[]}>
         <AccordionItem borderColor="whiteAlpha.200">
           <AccordionButton>
             <Text textColor="whiteAlpha.800">Products</Text>
@@ -50,9 +51,12 @@ function Sidebar() {
 
           <AccordionPanel>
             <Flex pl={3} direction="column" gap={1}>
-              <Text>Product 1</Text>
-              <Text>Product 2</Text>
-              <Text>Product 3</Text>
+              <Text>
+                <Link to="products">All products</Link>
+              </Text>
+              <Text>
+                <Link to="add-product">Add product</Link>
+              </Text>
             </Flex>
           </AccordionPanel>
         </AccordionItem>
@@ -65,8 +69,12 @@ function Sidebar() {
 
           <AccordionPanel>
             <Flex pl={3} direction="column" gap={1}>
-              <Text>All bookings</Text>
-              <Text>Daily Capacity</Text>
+              <Text>
+                <Link to="bookings">All bookings</Link>
+              </Text>
+              <Text>
+                <Link to="daily">Daily Capacity</Link>
+              </Text>
             </Flex>
           </AccordionPanel>
         </AccordionItem>
@@ -79,9 +87,12 @@ function Sidebar() {
 
           <AccordionPanel>
             <Flex pl={3} direction="column" gap={1}>
-              <Text>Room 1</Text>
-              <Text>Room 2</Text>
-              <Text>Room 3</Text>
+              <Text>
+                <Link to="rooms">All rooms</Link>
+              </Text>
+              <Text>
+                <Link to="add-room">Add room</Link>
+              </Text>
             </Flex>
           </AccordionPanel>
         </AccordionItem>
