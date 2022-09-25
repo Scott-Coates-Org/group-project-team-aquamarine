@@ -20,6 +20,7 @@ function TopNav() {
   const logoutHandler = () => {
     signOut(auth);
     dispatch(logout());
+    console.log(user.photoUrl);
   };
 
   return (
@@ -40,7 +41,7 @@ function TopNav() {
           <Flex alignItems="center" gap={3}>
             {user.photoUrl ? (
               <img
-                // referrerPolicy="no-referrer"
+                referrerPolicy="no-referrer"
                 width="35px"
                 height="35px"
                 alt="avatar"

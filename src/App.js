@@ -7,6 +7,7 @@ import Login from "layouts/login/Login";
 import AdminPage from "layouts/adminPage/index";
 import HomePage from "layouts/homePage/index";
 import CustomerPage from "layouts/customerPage/index";
+// import AddRooms from "layouts/adminPage/components/AddRooms";
 import {
   currentUser,
   removeCurrentUser,
@@ -48,7 +49,7 @@ function App() {
           <Route path="/zeeshan" element={<yourComponent />} />
           <Route path="/rustem" element={<AddRooms />} />
           ----------------------------------------------------------- */}
-
+          {/* <Route path="/rustem" element={<AddRooms />} /> */}
           <Route path="/" element={<HomePage />} />
           <Route path="/customer" element={<CustomerPage />} />
 

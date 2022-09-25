@@ -167,7 +167,7 @@ function AddRooms() {
               <NumberInput
                 name="capacity"
                 min={0}
-                max={20}
+                max={70}
                 // onChange={handleCapacityChange}
                 onChange={(e) => setRoomCapacity(e)}
                 value={roomCapacity}
