@@ -2,21 +2,32 @@ import { CalendarIcon } from "@chakra-ui/icons";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setTotal } from "redux/cartSlice";
 import { getFormatedDate } from "utils/dateFormat";
 
 function CustomerCart() {
   const selectedDate = useSelector((state) => state.cart.date);
   const products = useSelector((state) => state.cart.products);
-  const [total, setTotal] = useState();
+  const subTotal = useSelector((state) => state.cart.total);
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (products !== null) {
-  //     for (const product in products) {
-  //       productsArray.push(Object.values(product));
-  //     }
-  //   }
-  // }, [products, productsArray]);
+  const [supTotal, setSubTotal] = useState(0);
+
+  useEffect(() => {
+    if (products.length > 0) {
+      console.log("products not null", products);
+      let amount = 0;
+      products.map((product) => {
+        if (product.quantity) {
+          amount = product.quantity * product.price + amount;
+        }
+        return amount;
+      });
+      dispatch(setTotal({ total: amount }));
+      console.log(subTotal);
+    } else return console.log("products null", products);
+  }, [products]);
 
   return (
     <Flex
@@ -127,7 +138,7 @@ function CustomerCart() {
               </Box>
             </Flex>
           ))}
-        {products && (
+        {subTotal > 0 && (
           <>
             <Text
               mt={5}
@@ -137,46 +148,111 @@ function CustomerCart() {
             >
               Total
             </Text>
-            {products.map((product) => (
+            <Flex
+              w="full"
+              mt={0}
+              flexDir="column"
+              gap={2}
+              // justifyContent="center"
+              // alignItems="center"
+            >
               <Flex
-                key={product.id}
                 w="full"
                 mt={0}
-                flexDir="column"
+                flexDir="row"
                 gap={2}
                 // justifyContent="center"
-                // alignItems="center"
+                alignItems="center"
               >
-                <Flex
-                  w="full"
-                  mt={0}
-                  flexDir="row"
-                  gap={2}
-                  // justifyContent="center"
-                  alignItems="center"
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={400}
+                  flex="1"
                 >
-                  <Text
-                    // textAlign={["left", "center"]}
-                    fontSize="1em"
-                    fontWeight={600}
-                    flex="1"
-                  >
-                    Subtotal
-                  </Text>
-                  {!product.price ? (
-                    "$0.00"
-                  ) : (
-                    <Text
-                      // textAlign={["left", "center"]}
-                      fontSize="1em"
-                      fontWeight={400}
-                    >
-                      {`$${product.price * product.quantity}.00`}
-                    </Text>
-                  )}
-                </Flex>
+                  Subtotal
+                </Text>
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={400}
+                >
+                  {`$${subTotal}.00`}
+                </Text>
               </Flex>
-            ))}
+              <Flex
+                w="full"
+                mt={0}
+                flexDir="row"
+                gap={2}
+                // justifyContent="center"
+                alignItems="center"
+              >
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={400}
+                  flex="1"
+                >
+                  Transaction Fee
+                </Text>
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={400}
+                >
+                  {`$7.00`}
+                </Text>
+              </Flex>
+              <Flex
+                w="full"
+                mt={0}
+                flexDir="row"
+                gap={2}
+                // justifyContent="center"
+                alignItems="center"
+              >
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={400}
+                  flex="1"
+                >
+                  Tax
+                </Text>
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={400}
+                >
+                  {`$4.85`}
+                </Text>
+              </Flex>
+              <Flex
+                w="full"
+                mt={0}
+                flexDir="row"
+                gap={2}
+                // justifyContent="center"
+                alignItems="center"
+              >
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={600}
+                  flex="1"
+                >
+                  Total (Inc. Tax)
+                </Text>
+                <Text
+                  // textAlign={["left", "center"]}
+                  fontSize="1em"
+                  fontWeight={600}
+                >
+                  {subTotal === 0 ? "$0.00" : `${subTotal + 7 + 4.85}`}
+                </Text>
+              </Flex>
+            </Flex>
           </>
         )}
       </Flex>

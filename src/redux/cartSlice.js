@@ -3,6 +3,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   date: "",
   products: [],
+  total: 0,
   addons: {},
   contacts: {},
   payDetails: {},
@@ -64,11 +65,15 @@ export const cartSlice = createSlice({
       state.products = newProducts;
       console.log(current(state.products));
     },
+    setTotal: (state, action) => {
+      const { total } = action.payload;
+      state.total = total;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setDate, setProductsTime, setProductsQuantity } =
+export const { setDate, setProductsTime, setProductsQuantity, setTotal } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
