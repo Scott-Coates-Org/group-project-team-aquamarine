@@ -7201,7 +7201,7 @@ firebase-tools@^11.9.0:
     winston-transport "^4.4.0"
     ws "^7.2.3"
 
-firebase@^9.10.0:
+firebase@^9.9.0:
   version "9.10.0"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-9.10.0.tgz#07e22bddce3cc1f380c440edc6286c09ac6cce8f"
   integrity sha512-oSuED6BT+gQrOoXPV/xkxBLMk03A9nDXosW0xy4loQtGRJr9gW6JXgEOr0nmXFMTGzP87CpoC8Kd6y7XKSAeqQ==
@@ -12125,6 +12125,13 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-signature-pad-wrapper@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-signature-pad-wrapper/-/react-signature-pad-wrapper-3.2.3.tgz#da3358d9486ef623b5960da0be1ea1e05a1cda0c"
+  integrity sha512-XMQLHPCCA7950wKfq0fVF60swK9+ExjRPh3YeH3au00PuMG4VhUlJZvOosUN4WiYrmEzxSB7CSeHzqMOXj/iOw==
+  dependencies:
+    signature_pad "^4.0.0"
+
 react-style-singleton@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-style-singleton/-/react-style-singleton-2.2.1.tgz#f99e420492b2d8f34d38308ff660b60d0b1205b4"
@@ -12846,6 +12853,11 @@ signal-exit@^3.0.2, signal-exit@^3.0.3, signal-exit@^3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
+
+signature_pad@^4.0.0:
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/signature_pad/-/signature_pad-4.0.9.tgz#5c67a3eb6ae7a0a309ea7da8b7098f45714926ea"
+  integrity sha512-EtFMImHLeyriZNULYhBH/UynQIq3acV9Dbl/3G0M4T24g7k5/h4sjdKr67sn5EBvIkBWbjYP1mk+aqWKjgYrow==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

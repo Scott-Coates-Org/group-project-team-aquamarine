@@ -7,6 +7,7 @@ const initialState = {
   addons: {},
   contacts: {},
   payDetails: {},
+  signature: {},
 };
 
 export const cartSlice = createSlice({
@@ -69,11 +70,22 @@ export const cartSlice = createSlice({
       const { total } = action.payload;
       state.total = total;
     },
+    setSignature: (state, action) => {
+      const { signature } = action.payload;
+      console.log(signature);
+      state.signature = signature;
+      // console.log(current(state.signature));
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setDate, setProductsTime, setProductsQuantity, setTotal } =
-  cartSlice.actions;
+export const {
+  setDate,
+  setProductsTime,
+  setProductsQuantity,
+  setTotal,
+  setSignature,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
