@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
 import { Box, Checkbox, Flex, Text, chakra } from "@chakra-ui/react";
 import SignaturePad from "react-signature-pad-wrapper";
-import { CheckIcon, CloseIcon, SmallCloseIcon } from "@chakra-ui/icons";
+import { CheckIcon, SmallCloseIcon } from "@chakra-ui/icons";
 import { setSignature } from "redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import { useState } from "react";
 
-function SignWaiverStep() {
+function SignWaiverStep({}) {
   const signatureRef = useRef(null);
   const checkRef = useRef(null);
   const signature = useSelector((state) => state.cart.signature);
@@ -16,7 +16,7 @@ function SignWaiverStep() {
 
   const handleSignatureConfirm = (e) => {
     e.preventDefault();
-    if (checked === false) {
+    if (!checked) {
       checkRef.current.focus();
       return alert("Please confirm the agreement.");
     }
@@ -25,6 +25,7 @@ function SignWaiverStep() {
     }
 
     const data = signatureRef.current.toDataURL("image/png");
+    // console.log(JSON.parse(data));
     dispatch(setSignature({ signature: data }));
   };
 
@@ -145,17 +146,33 @@ function SignWaiverStep() {
             >
               <SmallCloseIcon /> Clear
             </chakra.button>
-            <chakra.button
-              borderWidth="1px"
-              borderRadius="md"
-              fontSize="1em"
-              bg="#e2e8f0"
-              p="1px 8px"
-              textAlign="center"
-              onClick={handleSignatureConfirm}
-            >
-              <CheckIcon h={4} /> Confirm
-            </chakra.button>
+            {Object.keys(signature).length === 0 || !checked ? (
+              <chakra.button
+                borderWidth="1px"
+                borderRadius="md"
+                fontSize="1em"
+                bg="#e2e8f0"
+                p="1px 8px"
+                textAlign="center"
+                onClick={handleSignatureConfirm}
+              >
+                <CheckIcon h={4} /> Confirm
+              </chakra.button>
+            ) : (
+              <chakra.button
+                borderWidth="1px"
+                borderRadius="md"
+                fontSize="1em"
+                bg="#20b925"
+                color="#fff"
+                p="1px 8px"
+                textAlign="center"
+                // onClick={handleSignatureConfirm}
+                disabled={true}
+              >
+                <CheckIcon h={4} /> Confirmed
+              </chakra.button>
+            )}
           </Flex>
         </Flex>
       </form>

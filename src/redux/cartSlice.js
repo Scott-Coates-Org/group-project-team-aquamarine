@@ -4,7 +4,7 @@ const initialState = {
   date: "",
   products: [],
   total: 0,
-  addons: {},
+  addons: [],
   contacts: {},
   payDetails: {},
   signature: {},
@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
       const { id, name, time } = action.payload;
       const newProducts = state.products;
       const productIndex = newProducts.findIndex((p) => p.id === id);
-      console.log(productIndex);
+      // console.log(productIndex);
       if (productIndex !== -1) {
         newProducts[productIndex] = {
           ...newProducts[productIndex],
@@ -37,13 +37,13 @@ export const cartSlice = createSlice({
       //   newProducts[id] = { id: id, name: name, time: time };
       // }
       state.products = newProducts;
-      console.log(current(state.products));
+      // console.log(current(state.products));
     },
     setProductsQuantity: (state, action) => {
       const { id, name, quantity, price } = action.payload;
       const newProducts = state.products;
       const productIndex = newProducts.findIndex((p) => p.id === id);
-      console.log(productIndex);
+      // console.log(productIndex);
       if (productIndex !== -1) {
         newProducts[productIndex] = {
           ...newProducts[productIndex],
@@ -64,15 +64,38 @@ export const cartSlice = createSlice({
       //   newProducts[id] = { id: id, name: name, quantity: quantity };
       // }
       state.products = newProducts;
-      console.log(current(state.products));
+      // console.log(current(state.products));
     },
     setTotal: (state, action) => {
       const { total } = action.payload;
       state.total = total;
     },
+    setAddonsQuantity: (state, action) => {
+      const { id, name, quantity, price } = action.payload;
+      console.log(id, name, quantity, price);
+      const newAddons = state.addons;
+      const addonIndex = newAddons.findIndex((a) => a.id === id);
+      // console.log(productIndex);
+      if (addonIndex !== -1) {
+        newAddons[addonIndex] = {
+          ...newAddons[addonIndex],
+          quantity: quantity,
+          price: price,
+        };
+      } else {
+        newAddons.push({
+          id: id,
+          name: name,
+          quantity: quantity,
+          price: price,
+        });
+      }
+      state.addons = newAddons;
+      // console.log(current(state.products));
+    },
     setSignature: (state, action) => {
       const { signature } = action.payload;
-      console.log(signature);
+      // console.log(signature);
       state.signature = signature;
       // console.log(current(state.signature));
     },
@@ -84,6 +107,7 @@ export const {
   setDate,
   setProductsTime,
   setProductsQuantity,
+  setAddonsQuantity,
   setTotal,
   setSignature,
 } = cartSlice.actions;

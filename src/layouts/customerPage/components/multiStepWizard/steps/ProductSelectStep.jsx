@@ -40,9 +40,9 @@ function ProductSelectStep() {
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
+  // useEffect(() => {
+  //   console.log(products);
+  // }, [products]);
 
   // const handleTimeRadioSelect = (e) => {
   //   console.log(e);
@@ -97,7 +97,7 @@ function ProductSelectStep() {
             {UseRadioHook({
               groupName: "kidsRoom",
               options: timeOptions,
-              defaultValue: "10:00am",
+              defaultValue: "10:00",
               onChange: (value) =>
                 dispatch(
                   setProductsTime({

@@ -14,6 +14,7 @@ function MultiStepWizardForm() {
   const [step, setStep] = useState(0);
   const ifDateSelected = useSelector((state) => state.cart.date);
   const ifSignature = useSelector((state) => state.cart.signature);
+  const ifProducts = useSelector((state) => state.cart.products);
   const formTitles = [
     "Select Date",
     "Select Product",
@@ -48,6 +49,8 @@ function MultiStepWizardForm() {
       return alert("Please pick a date!");
     } else if (Object.keys(ifSignature).length === 0 && step === 4) {
       return alert("Please sign and confirm to continue!");
+    } else if (Object.keys(ifProducts).length === 0 && step === 1) {
+      return alert("Please add products to cart to continue!");
     } else {
       setStep((prevState) => prevState + 1);
     }

@@ -8,6 +8,7 @@ import { getFormatedDate } from "utils/dateFormat";
 function CustomerCart() {
   const selectedDate = useSelector((state) => state.cart.date);
   const products = useSelector((state) => state.cart.products);
+  const addons = useSelector((state) => state.cart.addons);
   const subTotal = useSelector((state) => state.cart.total);
   const dispatch = useDispatch();
 
@@ -20,9 +21,18 @@ function CustomerCart() {
         }
         return amount;
       });
+      if (addons.length > 0) {
+        addons.map((ad) => {
+          if (ad.quantity) {
+            amount = ad.quantity * ad.price + amount;
+          }
+          return amount;
+        });
+      }
+      console.log(amount);
       dispatch(setTotal({ total: amount }));
     } else return;
-  }, [products]);
+  }, [products, addons]);
 
   return (
     <Flex
@@ -104,6 +114,28 @@ function CustomerCart() {
                   {product.time}
                 </Box>
               )}
+            </Flex>
+          ))}
+        {addons &&
+          addons.map((ad) => (
+            <Flex key={ad.id} w="full" mt={0} flexDir="column" gap={2}>
+              <Flex w="full" mt={0} flexDir="row" gap={2} alignItems="center">
+                {ad.quantity > 0 && (
+                  <Text fontSize="1em" fontWeight={400} flex="1 0 1">
+                    {`${ad.quantity} x `}
+                  </Text>
+                )}
+                <Text fontSize="1em" fontWeight={600} flex="1">
+                  {ad.name}
+                </Text>
+                {!ad.price ? (
+                  "$0.00"
+                ) : (
+                  <Text fontSize="1em" fontWeight={400}>
+                    {`$${ad.price * ad.quantity}.00`}
+                  </Text>
+                )}
+              </Flex>
             </Flex>
           ))}
         {subTotal > 0 && (
