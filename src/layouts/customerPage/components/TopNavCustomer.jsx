@@ -24,6 +24,7 @@ function TopNavCustomer() {
       top={0}
       position="sticky"
       boxShadow="lg"
+      zIndex="10"
     >
       <Flex alignItems="center" justifyContent="center" gap={5}>
         <Box
