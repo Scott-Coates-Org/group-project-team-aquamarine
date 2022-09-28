@@ -9,6 +9,7 @@ import {
   MenuList,
   Text,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function TopNavCustomer() {
   return (
@@ -26,22 +27,24 @@ function TopNavCustomer() {
       boxShadow="lg"
       zIndex="10"
     >
-      <Flex alignItems="center" justifyContent="center" gap={5}>
-        <Box
-          w={5}
-          h={5}
-          rounded="full"
-          bgGradient="linear(to-bl, #7928CA, #FF0080)"
-        />
-        <Text
-          bgGradient="linear(to-bl, #7928CA, #FF0080)"
-          bgClip="text"
-          fontSize="2xl"
-          fontWeight="black"
-        >
-          Aquamarine
-        </Text>
-      </Flex>
+      <Link to="/">
+        <Flex alignItems="center" justifyContent="center" gap={5}>
+          <Box
+            w={5}
+            h={5}
+            rounded="full"
+            bgGradient="linear(to-bl, #7928CA, #FF0080)"
+          />
+          <Text
+            bgGradient="linear(to-bl, #7928CA, #FF0080)"
+            bgClip="text"
+            fontSize="2xl"
+            fontWeight="black"
+          >
+            Aquamarine
+          </Text>
+        </Flex>
+      </Link>
 
       <Menu>
         <MenuButton>

@@ -13,11 +13,10 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAddonsQuantity } from "redux/cartSlice";
 
 function AddonSelectStep() {
-  const addons = useSelector((state) => state.cart.addons);
   const dispatch = useDispatch();
 
   return (

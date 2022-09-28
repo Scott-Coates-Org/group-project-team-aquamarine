@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Box, Checkbox, Flex, Text, chakra } from "@chakra-ui/react";
 import SignaturePad from "react-signature-pad-wrapper";
 import { CheckIcon, SmallCloseIcon } from "@chakra-ui/icons";
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import { useState } from "react";
 
-function SignWaiverStep({}) {
+function SignWaiverStep() {
   const signatureRef = useRef(null);
   const checkRef = useRef(null);
   const signature = useSelector((state) => state.cart.signature);

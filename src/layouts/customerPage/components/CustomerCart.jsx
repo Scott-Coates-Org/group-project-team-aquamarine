@@ -32,7 +32,7 @@ function CustomerCart() {
       console.log(amount);
       dispatch(setTotal({ total: amount }));
     } else return;
-  }, [products, addons]);
+  }, [products, addons, dispatch]);
 
   return (
     <Flex

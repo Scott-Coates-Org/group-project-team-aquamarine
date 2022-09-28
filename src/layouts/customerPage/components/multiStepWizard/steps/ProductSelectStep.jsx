@@ -13,8 +13,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import UseRadioHook from "components/UseRadioHook";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { setProductsQuantity, setProductsTime } from "redux/cartSlice";
 
 function ProductSelectStep() {
@@ -37,16 +37,7 @@ function ProductSelectStep() {
     "05:30",
   ];
 
-  const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   console.log(products);
-  // }, [products]);
-
-  // const handleTimeRadioSelect = (e) => {
-  //   console.log(e);
-  // };
 
   return (
     <Flex
