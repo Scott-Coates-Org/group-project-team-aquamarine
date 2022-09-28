@@ -1,0 +1,126 @@
+.react-datepicker__input-container input {
+  display: block;
+  border-radius: 1rem;
+  border: none;
+  background-color: white;
+  padding: 0.5rem;
+  color: black;
+}
+
+.react-datepicker-popper {
+  z-index: 40;
+  width: 25rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  background-color: white;
+}
+
+.react-datepicker__month-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.react-datepicker__month {
+  display: flex;
+  flex-direction: column;
+}
+
+.react-datepicker__current-month {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-around;
+}
+
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.react-datepicker__day-name {
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 1rem 0;
+  background-color: #d0d0d0;
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.react-datepicker__navigation {
+  position: absolute;
+  transition: all 0.1s ease-in-out;
+}
+
+.react-datepicker__navigation:hover {
+  background-color: #d0d0d0;
+}
+
+.react-datepicker__navigation--previous {
+  display: flex;
+  left: 3rem;
+  font-weight: 600;
+  height: 2rem;
+  width: 2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+.react-datepicker__navigation--next {
+  display: flex;
+  right: 3rem;
+  font-weight: 600;
+  height: 2rem;
+  width: 2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+.react-datepicker__day {
+  margin-bottom: 0.5rem;
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 1rem 0;
+  background-color: #f0f0f0;
+  transition: all 0.1s ease-in-out;
+}
+
+.react-datepicker__day:hover {
+  background-color: #d0d0d0;
+}
+
+.react-datepicker__day--disabled {
+  /* @apply cursor-not-allowed opacity-40 hover:bg-transparent; */
+}
+
+.react-datepicker__day--outside-month {
+  background-color: #e0e0e0;
+}
+
+.react-datepicker__day--selected {
+  background-color: blueviolet;
+  color: white;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: blueviolet;
+}
