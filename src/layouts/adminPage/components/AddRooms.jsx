@@ -28,7 +28,7 @@ import { db } from "firebaseApi/client";
 function AddRooms() {
   const [roomName, setRoomName] = useState("");
   const [roomCapacity, setRoomCapacity] = useState("0");
-  const [roomPhotoFile, setRoomPhotoFile] = useState(null);
+  const [setRoomPhotoFile] = useState(null);
   const [roomPhotoURL, setRoomPhotoURL] = useState("");
   const [photoLoading, setPhotoLoading] = useState("");
 
@@ -68,6 +68,7 @@ function AddRooms() {
             case "running":
               setPhotoLoading("Upload is running");
               break;
+            default:
           }
         },
         (error) => {

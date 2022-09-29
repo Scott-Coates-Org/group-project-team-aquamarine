@@ -32,7 +32,7 @@ function AddProducts() {
   const [productType, setProductType] = useState("0");
   const [roomSize, setRoomSize] = useState("0");
   const [bookingDuration, setBookingDuration] = useState("0");
-  const [productPhotoFile, setProductPhotoFile] = useState(null);
+  const [setProductPhotoFile] = useState(null);
   const [productPhotoURL, setProductPhotoURL] = useState("");
   const [photoLoading, setPhotoLoading] = useState("");
 
@@ -79,6 +79,7 @@ function AddProducts() {
             case "running":
               setPhotoLoading("Upload is running");
               break;
+            default:
           }
         },
         (error) => {
