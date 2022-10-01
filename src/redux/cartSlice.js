@@ -95,7 +95,7 @@ export const cartSlice = createSlice({
     },
     setSignature: (state, action) => {
       const { signature } = action.payload;
-      // console.log(signature);
+      console.log(signature);
       state.signature = signature;
       // console.log(current(state.signature));
     },
