@@ -29,7 +29,7 @@ function CustomerCart() {
           return amount;
         });
       }
-      console.log(amount);
+      // console.log(amount);
       dispatch(setTotal({ total: amount }));
     } else return;
   }, [products, addons, dispatch]);

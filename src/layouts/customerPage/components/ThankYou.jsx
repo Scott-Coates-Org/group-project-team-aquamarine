@@ -1,22 +1,12 @@
 import { CalendarIcon } from "@chakra-ui/icons";
 import { Box, Flex, Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { getFormatedDate } from "utils/dateFormat";
 
 function CustomerCart() {
   const selectedDate = useSelector((state) => state.cart.date);
   const products = useSelector((state) => state.cart.products);
-  const [total, setTotal] = useState();
-
-  // useEffect(() => {
-  //   if (products !== null) {
-  //     for (const product in products) {
-  //       productsArray.push(Object.values(product));
-  //     }
-  //   }
-  // }, [products, productsArray]);
 
   return (
     <Flex
@@ -72,10 +62,11 @@ function CustomerCart() {
           </Flex>
         )}
         <Text textAlign={["left"]} fontSize="1.0em" fontWeight={700}>
-         Hello John Doe!
+          Hello John Doe!
         </Text>
         <Text textAlign={["left"]} fontSize="1.0em" fontWeight={400}>
-         Your booking has been confirmed and we have sent to John.Doe@test.com with your order confirmation and receipt.
+          Your booking has been confirmed and we have sent to John.Doe@test.com
+          with your order confirmation and receipt.
         </Text>
         <Text textAlign={["left"]} fontSize="1.0em" fontWeight={700}>
           Order Details:

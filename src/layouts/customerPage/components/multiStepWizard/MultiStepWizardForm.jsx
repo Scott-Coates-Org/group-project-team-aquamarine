@@ -15,6 +15,7 @@ function MultiStepWizardForm() {
   const ifDateSelected = useSelector((state) => state.cart.date);
   const ifSignature = useSelector((state) => state.cart.signature);
   const ifProducts = useSelector((state) => state.cart.products);
+  const ifCustomer = useSelector((state) => state.customer.customer);
   const formTitles = [
     "Select Date",
     "Select Product",
@@ -51,6 +52,13 @@ function MultiStepWizardForm() {
       return alert("Please sign and confirm to continue!");
     } else if (Object.keys(ifProducts).length === 0 && step === 1) {
       return alert("Please add products to cart to continue!");
+    } else if (step === 3) {
+      // console.log(ifCustomer);
+      if (ifCustomer.id) {
+        setStep((prevState) => prevState + 1);
+      } else {
+        return alert("Please fill the inputs and save to continue!");
+      }
     } else {
       setStep((prevState) => prevState + 1);
     }
