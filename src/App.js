@@ -15,6 +15,7 @@ import {
 } from "redux/currentUserReducer";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "firebaseApi/client";
+import "@stripe/stripe-js";
 
 function App() {
   const dispatch = useDispatch();

@@ -136,13 +136,13 @@ function MultiStepWizardForm() {
           gap={3}
           className="wizard__form_container__footer"
         >
-          {step === formTitles.length - 1 && (
+          {/* {step === formTitles.length - 1 && (
             <Button
               text="Pay Now"
               onClick={() => console.log("Payment confirmed")}
               color="green"
             />
-          )}
+          )} */}
           {step < formTitles.length - 1 && (
             <Button
               text="Continue"

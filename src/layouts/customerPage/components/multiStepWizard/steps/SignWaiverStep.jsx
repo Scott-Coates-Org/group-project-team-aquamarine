@@ -9,7 +9,7 @@ import { useState } from "react";
 
 function SignWaiverStep() {
   const signature = useSelector((state) => state.cart.signature);
-  const [signed, setSigned] = useState(null);
+  // const [signed, setSigned] = useState(null);
   const signatureRef = useRef(null);
   // signatureRef.current.fromDataURL(signature);
   const checkRef = useRef(null);

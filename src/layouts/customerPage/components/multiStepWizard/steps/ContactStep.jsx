@@ -4,6 +4,7 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { setNewCustomer } from "redux/customerSlice.js";
 import { db } from "firebaseApi/client";
+import { setContacts } from "redux/cartSlice";
 
 function ContactStep() {
   const [fullName, setFullName] = useState("");
@@ -23,10 +24,16 @@ function ContactStep() {
     // console.log(data);
     try {
       const newCustomerInfoRef = doc(collection(db, "customers"));
-      await setDoc(newCustomerInfoRef, data).then(function () {
+      await setDoc(newCustomerInfoRef, {
+        ...data,
+        id: newCustomerInfoRef.id,
+      }).then(function () {
         // alert("Customer info successfully sent!");
         dispatch(
           setNewCustomer({ customer: { ...data, id: newCustomerInfoRef.id } })
+        );
+        dispatch(
+          setContacts({ customer: { ...data, id: newCustomerInfoRef.id } })
         );
       });
     } catch (error) {

@@ -84,6 +84,7 @@ function AddonSelectStep() {
                       name: "Grip Socks",
                       quantity: value,
                       price: 5,
+                      stripe: "price_1Lp9a8PZaOD2LKEE9QcWKJNY",
                     })
                   )
                 }
@@ -176,6 +177,7 @@ function AddonSelectStep() {
                       name: "Wristband",
                       quantity: value,
                       price: 3,
+                      stripe: "price_1Lp9ajPZaOD2LKEECK6zlwl1",
                     })
                   )
                 }
@@ -268,6 +270,7 @@ function AddonSelectStep() {
                       name: "Nylon Bag",
                       quantity: value,
                       price: 15,
+                      stripe: "price_1Lp9bRPZaOD2LKEEd2Ogoi8G",
                     })
                   )
                 }
