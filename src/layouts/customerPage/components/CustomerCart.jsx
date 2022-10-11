@@ -29,7 +29,7 @@ function CustomerCart() {
           return amount;
         });
       }
-      console.log(amount);
+      // console.log(amount);
       dispatch(setTotal({ total: amount }));
     } else return;
   }, [products, addons, dispatch]);
@@ -162,7 +162,7 @@ function CustomerCart() {
                   Transaction Fee
                 </Text>
                 <Text fontSize="1em" fontWeight={400}>
-                  {`$7.00`}
+                  {`$5.00`}
                 </Text>
               </Flex>
               <Flex w="full" mt={0} flexDir="row" gap={2} alignItems="center">
@@ -170,7 +170,7 @@ function CustomerCart() {
                   Tax
                 </Text>
                 <Text fontSize="1em" fontWeight={400}>
-                  {`$4.85`}
+                  {`$${Math.round(subTotal * 6.25) / 100}`}
                 </Text>
               </Flex>
               <Flex w="full" mt={0} flexDir="row" gap={2} alignItems="center">
@@ -178,7 +178,11 @@ function CustomerCart() {
                   Total (Inc. Tax)
                 </Text>
                 <Text fontSize="1em" fontWeight={600}>
-                  {subTotal === 0 ? "$0.00" : `${subTotal + 7 + 4.85}`}
+                  {subTotal === 0
+                    ? "$0.00"
+                    : `$${Math.round(
+                        subTotal + (subTotal * 6.25) / 100 + 5
+                      ).toFixed(2)}`}
                 </Text>
               </Flex>
             </Flex>

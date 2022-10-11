@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  cartId: "",
   date: "",
   products: [],
   total: 0,
@@ -14,6 +15,10 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    setCartId: (state, action) => {
+      state.cartId = action.payload.cartId;
+      // console.log(state.cartId);
+    },
     setDate: (state, action) => {
       state.date = action.payload.date;
       // console.log(state.date);
@@ -40,7 +45,7 @@ export const cartSlice = createSlice({
       // console.log(current(state.products));
     },
     setProductsQuantity: (state, action) => {
-      const { id, name, quantity, price } = action.payload;
+      const { id, name, quantity, price, stripe } = action.payload;
       const newProducts = state.products;
       const productIndex = newProducts.findIndex((p) => p.id === id);
       // console.log(productIndex);
@@ -56,6 +61,7 @@ export const cartSlice = createSlice({
           name: name,
           quantity: quantity,
           price: price,
+          stripe: stripe,
         });
       }
       // if (newProducts[id]) {
@@ -71,8 +77,8 @@ export const cartSlice = createSlice({
       state.total = total;
     },
     setAddonsQuantity: (state, action) => {
-      const { id, name, quantity, price } = action.payload;
-      console.log(id, name, quantity, price);
+      const { id, name, quantity, price, stripe } = action.payload;
+      // console.log(id, name, quantity, price, stripe);
       const newAddons = state.addons;
       const addonIndex = newAddons.findIndex((a) => a.id === id);
       // console.log(productIndex);
@@ -88,14 +94,20 @@ export const cartSlice = createSlice({
           name: name,
           quantity: quantity,
           price: price,
+          stripe: stripe,
         });
       }
       state.addons = newAddons;
       // console.log(current(state.products));
     },
+    setContacts: (state, action) => {
+      console.log(action.payload.customer);
+      state.contacts = action.payload.customer;
+      console.log(state.contacts);
+    },
     setSignature: (state, action) => {
       const { signature } = action.payload;
-      // console.log(signature);
+      console.log(signature);
       state.signature = signature;
       // console.log(current(state.signature));
     },
@@ -109,6 +121,7 @@ export const {
   setProductsQuantity,
   setAddonsQuantity,
   setTotal,
+  setContacts,
   setSignature,
 } = cartSlice.actions;
 

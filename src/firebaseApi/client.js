@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+// import { loadStripe } from "@stripe/stripe-js";
+// import { getFunctions } from "firebase/functions";
 import "@firebase/auth";
 import "@firebase/storage";
 import "firebase/firestore";
@@ -29,6 +31,21 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-export { db, auth };
+// let stripePromise;
 
+// const getStripe = () => {
+//   if (!stripePromise) {
+//     console.log(process.env.REACT_APP_STRIPE_API_KEY);
+//     stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
+//   }
+//   return stripePromise;
+// };
 
+// const functions = getFunctions();
+
+// const createStripeCheckout = async () => {
+//   functions().httpsCallable("createStripeCheckout");
+//   const stripe = await getStripe();
+// };
+
+export { db, auth, app };
