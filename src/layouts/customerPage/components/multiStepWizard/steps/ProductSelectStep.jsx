@@ -125,6 +125,7 @@ function ProductSelectStep() {
                       name: "Kid's 2h",
                       quantity: value,
                       price: 25,
+                      stripe: "price_1Lor9QPZaOD2LKEEEL5NANG3",
                     })
                   )
                 }
@@ -201,7 +202,7 @@ function ProductSelectStep() {
             {UseRadioHook({
               groupName: "adultsRoom",
               options: timeOptions,
-              defaultValue: "10:00am",
+              defaultValue: "10:00",
               onChange: (value) =>
                 dispatch(
                   setProductsTime({
@@ -238,6 +239,7 @@ function ProductSelectStep() {
                       name: "Adult's 2h",
                       quantity: value,
                       price: 20,
+                      stripe: "price_1Lor9vPZaOD2LKEElhRk0pvQ",
                     })
                   )
                 }
@@ -314,7 +316,7 @@ function ProductSelectStep() {
             {UseRadioHook({
               groupName: "adultsRoomUnlim",
               options: timeOptions,
-              defaultValue: "10:00am",
+              defaultValue: "10:00",
               onChange: (value) =>
                 dispatch(
                   setProductsTime({
@@ -351,6 +353,7 @@ function ProductSelectStep() {
                       name: "Adult's Unlim",
                       quantity: value,
                       price: 50,
+                      stripe: "price_1LorAUPZaOD2LKEEOX60E7sI",
                     })
                   )
                 }

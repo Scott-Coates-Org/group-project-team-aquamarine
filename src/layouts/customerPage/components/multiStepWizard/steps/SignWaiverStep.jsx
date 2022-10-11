@@ -8,11 +8,20 @@ import { useRef } from "react";
 import { useState } from "react";
 
 function SignWaiverStep() {
-  const signatureRef = useRef(null);
-  const checkRef = useRef(null);
   const signature = useSelector((state) => state.cart.signature);
+  // const [signed, setSigned] = useState(null);
+  const signatureRef = useRef(null);
+  // signatureRef.current.fromDataURL(signature);
+  const checkRef = useRef(null);
   const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
+
+  console.log(signature);
+
+  // if (Object.keys(signature).length !== 0) {
+  //   console.log(signature);
+  //   signature.fromDataURL()
+  // }
 
   const handleSignatureConfirm = (e) => {
     e.preventDefault();
@@ -24,7 +33,11 @@ function SignWaiverStep() {
       return alert("Please provide a signature first.");
     }
 
-    const data = signatureRef.current.toDataURL("image/png");
+    // signatureRef.current.toData();
+    // const data = signatureRef.current.toData();
+    // setSigned(data);
+    // signatureRef.current.fromData(signed);
+    const data = signatureRef.current.toDataURL("image/svg+xml");
     // console.log(JSON.parse(data));
     dispatch(setSignature({ signature: data }));
   };
@@ -119,6 +132,7 @@ function SignWaiverStep() {
           <Box border="1px dashed black" height="150px" borderRadius={10}>
             <SignaturePad
               ref={signatureRef}
+              // value={signed && signatureRef.current.fromData(signed)}
               height={150}
               options={{
                 minWidth: 1,
