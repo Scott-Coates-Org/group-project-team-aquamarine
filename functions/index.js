@@ -1,4 +1,6 @@
 const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+admin.initializeApp();
 
 // cloud functions for redirected stripe checkout page
 exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
@@ -8,13 +10,40 @@ exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
     payment_method_types: ["card"],
     mode: "payment",
     line_items: data.line_items,
-    success_url: "http://localhost:3000/customer/1",
-    cancel_url: "http://localhost:3000/customer/2",
+    redirect: "if_required",
+    // success_url: "http://localhost:3000/customer/1",
+    // cancel_url: "http://localhost:3000/customer/2",
   });
   return {
     id: session.id,
     url: session.url,
   };
+});
+
+exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
+  const stripe = require("stripe")(functions.config().stripe.secret_key);
+  let event;
+  try {
+    const whSecret = functions.config().stripe.payments_webhook_secret;
+    event = stripe.webhooks.constructEvent(
+      req.rawBody,
+      req.headers["stripe-signature"],
+      whSecret
+    );
+  } catch (error) {
+    console.error("Webhook signature verification failed.");
+    return res.sendStatus(400);
+  }
+  const dataObject = event.data.object;
+  console.log(dataObject);
+
+  await admin.firestore().collection("orders").doc().set({
+    checkoutSessionId: dataObject.id,
+    paymentStatus: dataObject.status,
+    amountTotal: dataObject.amount_received,
+  });
+
+  return res.sendStatus(200);
 });
 
 const calculateOrderAmount = (data) => {

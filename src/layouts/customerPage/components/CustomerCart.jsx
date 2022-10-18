@@ -180,9 +180,7 @@ function CustomerCart() {
                 <Text fontSize="1em" fontWeight={600}>
                   {subTotal === 0
                     ? "$0.00"
-                    : `$${Math.round(
-                        subTotal + (subTotal * 6.25) / 100 + 5
-                      ).toFixed(2)}`}
+                    : `$${(subTotal + (subTotal * 6.25) / 100 + 5).toFixed(2)}`}
                 </Text>
               </Flex>
             </Flex>

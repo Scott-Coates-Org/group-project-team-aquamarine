@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { chakra, Flex, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  chakra,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputLeftAddon,
+} from "@chakra-ui/react";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { setNewCustomer } from "redux/customerSlice.js";
@@ -10,6 +18,7 @@ function ContactStep() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
   const ifCustomer = useSelector((state) => state.customer.customer);
 
   const dispatch = useDispatch();
@@ -20,6 +29,7 @@ function ContactStep() {
       name: fullName,
       email: email,
       address: address,
+      phone: phone,
     };
     // console.log(data);
     try {
@@ -93,6 +103,18 @@ function ContactStep() {
             onChange={(e) => setAddress(e.target.value)}
             value={ifCustomer.address ? ifCustomer.address : address}
           />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Phone</FormLabel>
+          <InputGroup>
+            <InputLeftAddon children="+" />
+            <Input
+              type="number"
+              placeholder=""
+              onChange={(e) => setPhone(e.target.value)}
+              value={ifCustomer.phone ? ifCustomer.phone : phone}
+            />
+          </InputGroup>
         </FormControl>
         {ifCustomer.name ? (
           <chakra.button
