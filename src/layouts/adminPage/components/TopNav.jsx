@@ -27,7 +27,8 @@ function TopNav() {
     <Flex
       bg="white"
       w="full"
-      h={16}
+      pt="10px"
+      pb="10px"
       justifyContent="space-between"
       alignItems="center"
       px={8}

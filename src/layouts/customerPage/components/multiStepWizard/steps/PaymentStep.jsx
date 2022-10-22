@@ -10,8 +10,7 @@ import { Flex } from "@chakra-ui/react";
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
 
 function PaymentStep() {
-  const products = useSelector((state) => state.cart.products);
-  const addons = useSelector((state) => state.cart.addons);
+  const cart = useSelector((state) => state.cart);
   // const customer = useSelector((state) => state.cart.contacts);
   const orderId = useSelector((state) => state.customer.customer.id);
   const [clientSecret, setClientSecret] = useState("");
@@ -32,12 +31,28 @@ function PaymentStep() {
   //   participants: participants,
   // };
 
-  const order = { id: orderId, products: [] };
-  products.map((p) => {
-    return order.products.push({ price: p.price, quantity: +p.quantity });
+  const order = {
+    id: orderId,
+    products: [],
+    date: cart.date,
+    contacts: cart.contacts,
+  };
+  cart.products.map((p) => {
+    return order.products.push({
+      id: p.id,
+      name: p.name,
+      time: p?.time || "10:00",
+      price: p.price,
+      qty: +p.quantity,
+    });
   });
-  addons.map((a) => {
-    return order.products.push({ price: a.price, quantity: +a.quantity });
+  cart.addons.map((a) => {
+    return order.products.push({
+      id: a.id,
+      name: a.name,
+      price: a.price,
+      qty: +a.quantity,
+    });
   });
 
   console.log("order", order);
@@ -49,6 +64,7 @@ function PaymentStep() {
     createPaymentIntent(order).then((result) =>
       setClientSecret(result.data.clientSecret)
     );
+    // eslint-disable-next-line
   }, []);
 
   const appearance = {

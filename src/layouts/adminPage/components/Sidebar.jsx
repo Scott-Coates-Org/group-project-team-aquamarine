@@ -13,8 +13,7 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   return (
     <Flex
-      w={72}
-      h="full"
+      w="250px"
       bgColor="blackAlpha.900"
       py={4}
       px={7}

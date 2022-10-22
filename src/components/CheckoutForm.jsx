@@ -33,13 +33,15 @@ function CheckoutForm() {
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
         case "succeeded":
-          setMessage("Payment succeeded!");
+          setMessage("Please fill out the form to pay.");
           break;
         case "processing":
-          setMessage("Your payment is processing.");
+          setMessage("Loading...");
           break;
         case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
+          setMessage(
+            "Your payment form was not loaded successfully, please try again."
+          );
           break;
         default:
           setMessage("Something went wrong.");
@@ -105,11 +107,11 @@ function CheckoutForm() {
       {!payment && (
         <form id="payment-form" onSubmit={handleSubmit}>
           <PaymentElement id="payment-element" />
-          {/* {message && (
+          {message && (
             <Text mt={3} id="payment-message">
               {message}
             </Text>
-          )} */}
+          )}
           <chakra.button
             disabled={isLoading || !stripe || !elements}
             mt={10}
