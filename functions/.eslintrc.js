@@ -10,6 +10,7 @@ module.exports = {
     "object-curly-spacing": [2, "always"],
     "quote-props": ["error", "as-needed"],
     "max-len": ["error", { code: 120 }],
+    indent: "off",
   },
   parser: "@babel/eslint-parser",
   parserOptions: {

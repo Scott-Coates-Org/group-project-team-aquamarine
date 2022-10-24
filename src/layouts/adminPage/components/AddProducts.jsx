@@ -201,7 +201,6 @@ function AddProducts() {
                 // onChange={setRoomName()}
                 onChange={(e) => setProductPrice(e.target.value)}
                 value={productPrice}
-                $
               />
             </FormControl>
             <FormControl mt={6} isRequired>

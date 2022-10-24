@@ -9,6 +9,7 @@ const initialState = {
   contacts: {},
   payDetails: {},
   signature: {},
+  paymentStatus: false,
 };
 
 export const cartSlice = createSlice({
@@ -111,6 +112,11 @@ export const cartSlice = createSlice({
       state.signature = signature;
       // console.log(current(state.signature));
     },
+    setPaymentStatus: (state, action) => {
+      const { status } = action.payload;
+      state.paymentStatus = status;
+      // console.log(current(state.signature));
+    },
   },
 });
 
@@ -123,6 +129,7 @@ export const {
   setTotal,
   setContacts,
   setSignature,
+  setPaymentStatus,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

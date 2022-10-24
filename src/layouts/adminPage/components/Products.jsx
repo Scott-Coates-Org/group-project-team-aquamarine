@@ -14,12 +14,12 @@ import {
 
 function Products() {
   return (
-    <>
+    <Box h="full">
       <Text fontWeight="bold" fontSize="3xl">
         Products
       </Text>
 
-      <Box maxH="calc(100vh - 16rem)" overflowY="auto" mt={12}>
+      <Box overflowY="scroll" mt={5} h="100vh" b="0px">
         <TableContainer>
           <Table variant="simple">
             <Thead>
@@ -64,7 +64,7 @@ function Products() {
           </Table>
         </TableContainer>
       </Box>
-    </>
+    </Box>
   );
 }
 

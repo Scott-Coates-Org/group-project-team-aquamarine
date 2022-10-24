@@ -16,6 +16,7 @@ import {
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "firebaseApi/client";
 import "@stripe/stripe-js";
+import Success from "layouts/customerPage/components/Success";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function App() {
           {/* <Route path="/rustem" element={<AddRooms />} /> */}
           <Route path="/" element={<HomePage />} />
           <Route path="/customer" element={<CustomerPage />} />
+          <Route path="/customer/success" element={<Success />} />
 
           <Route
             path="/admin/*"

@@ -9,6 +9,7 @@ import PaymentStep from "./steps/PaymentStep";
 import ProductSelectStep from "./steps/ProductSelectStep";
 import SignWaiverStep from "./steps/SignWaiverStep";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function MultiStepWizardForm() {
   const [step, setStep] = useState(0);
@@ -16,6 +17,7 @@ function MultiStepWizardForm() {
   const ifSignature = useSelector((state) => state.cart.signature);
   const ifProducts = useSelector((state) => state.cart.products);
   const ifCustomer = useSelector((state) => state.customer.customer);
+  const payment = useSelector((status) => status.cart.paymentStatus);
   const formTitles = [
     "Select Date",
     "Select Product",
@@ -150,12 +152,21 @@ function MultiStepWizardForm() {
               color="blue"
             />
           )}
-          {step > 0 && step < formTitles.length && (
+          {!payment && step > 0 && step < formTitles.length && (
             <Button
               text="Back"
               onClick={() => setStep((prevState) => prevState - 1)}
               color="gray"
             />
+          )}
+          {payment && step < formTitles.length && (
+            <Link to="/">
+              <Button
+                text="Go to main"
+                // onClick={() => setStep((prevState) => prevState - 1)}
+                color="blue"
+              />
+            </Link>
           )}
         </Flex>
       </Flex>
